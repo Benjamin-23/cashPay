@@ -39,18 +39,62 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             const Text(
               "Hello World",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
             ),
             ElevatedButton(
                 onPressed: () {
                   // ignore: avoid_print
                   print("Button pressed");
                 },
-                child: const Text("Next"))
+                child: const Text("Next")),
+            const Center(
+              child: Text("Center"),
+            ),
           ],
         )
 
         // This trailing comma makes auto-formatting nicer for build methods.
         );
+  }
+}
+
+class TaskList extends StatelessWidget {
+  const TaskList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        TaskItem(label: "Hot"),
+        TaskItem(label: "Wet and Cold"),
+        TaskItem(label: "Cold and Hot"),
+        TaskItem(label: "Hot and Dry")
+      ],
+    );
+  }
+}
+
+class TaskItem extends StatefulWidget {
+  final String label;
+   TaskItem({Key? key, required this.label}) : super(key: key)
+
+  @override
+ // ignore: library_private_types_in_public_api
+ _TaskItemState createState() => _TaskItemState();
+}
+
+class _TaskItemState extends State<TaskItem> {
+  final bool _value = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Checkbox(onChanged: (newValue) => setState(() => _value == newValue), value: _value ),
+        Text(widget.label)
+      ],
+    );
   }
 }
