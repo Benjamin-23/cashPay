@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'CashPay'),
     );
   }
@@ -32,15 +33,22 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const Center(
-        child: Text("Welcome to the cashpay app coming soon"),
-      ),
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        body: Column(
+          children: const <Widget>[
+            Text("Home"),
+            Text("About"),
+            Expanded(
+                child: FittedBox(
+              child: FlutterLogo(),
+            ))
+          ],
+        )
 
-      // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        // This trailing comma makes auto-formatting nicer for build methods.
+        );
   }
 }
 // class AppExample extends StatefulWidget {
