@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'menu.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -11,56 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Happiness Salon',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
+          primaryColor: Colors.lightBlue[800],
+          fontFamily: 'Geogia',
+          brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'CashPay'),
+      home: const MyMenu(),
     );
   }
 }
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Column(
-          children: const <Widget>[
-            Text("Home"),
-            Text("About"),
-            Expanded(
-                child: FittedBox(
-              child: FlutterLogo(),
-            ))
-          ],
-        )
-
-        // This trailing comma makes auto-formatting nicer for build methods.
-        );
-  }
-}
-// class AppExample extends StatefulWidget {
-//   const AppExample({super.key});
-
-//   @override
-//   State<AppExample> createState() => _AppExampleState();
-// }
-
-// class _AppExampleState extends State<AppExample> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
